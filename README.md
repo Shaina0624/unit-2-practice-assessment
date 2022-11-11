@@ -12,7 +12,7 @@ function sayItLoud() {
 
 sayItLoud();
 ```
-
+`Hello!!!!` would be logged because `greeting` has been already declared by the variable, `let` before the function declaration. Function declaration defines a function with a specific parameter while function expression is when it is being immediately invoke the expression by the variable.
 
 
 2. **Okay... so why does the code below throw an error?**
@@ -26,7 +26,9 @@ function sayItLoud() {
 let greeting = "Hello"
 ```
 
-
+It will throw an `error` beacuse the expression, `sayItLoud();` is in invoked but not declared. `greeting` is declared, `let greeting = "Hello"`, after the fuction declaration `function sayItLoud() {
+  console.log(`${greeting}!!!`)
+}`. The variable `let` is being used which is a block scope that cannot be used anywhere, like after, the function block.
 
 3. **Mmhmmm... so what about this😰. What does the following code log? Why?**
 ```javascript
@@ -37,7 +39,7 @@ function sayItLoud() {
 var greeting = "Hello"
 ```
 
-
+`undefined` because 'var' or any other variable has to declare `greeting` before the `console.log` that is in the function and the expression `sayItLoud();` has to be invoked before or after the function declaration.
 
 4. **Why does the following block of code throw an error? How can we fix this without changing the variable declaration keyword?**
 ```javascript
@@ -54,7 +56,7 @@ console.log(status);
 **tags:** #variableScope
 **key:** "let is block scoped"
 
-
+`error` is being logged because `console.log(status);` needs to be logged after `let status = 'No umbrella needed!'` and/or `let status = 'Better wear a raincoat!'` before the semicolon. This is because `let` is a block scope meaning that the `console.log` statement would need to be within the brackets `{}`.
 
 5. **Why does the following block of code NOT throw an error?**
 ```javascript
@@ -71,10 +73,13 @@ console.log(status);
 **tags:** #variableScope
 **key:** "variables declared with var are not block scoped"
 
+Referring back to Question 5, `var` is a global and function scope while `let` and `const` are a block scope. the `console.log(status);` does not need to be within the brackets `{}`, or the block of code. 
 
 6. **In JavaScript, we can declare variables with `var`, `let`, and `const`. What are the differences between each? Be sure to comment on how each declaration impacts the _scope_, _reassignment_, and _hoisting_ of variables.**
 
-
+- `var` is the only varible that can be hoisted and is scoped globally and through a function. It can also be used to reassign variables to different values. It is the most flexible declaration of the varibles.
+- `let`, simliarly to `const`, it can never be hoisted and it can be used in a block scope. Like `var`, variables can be reassigned using declaration.
+- `const` is the least flexible declaration of the variables because it cannot be hoisted or reassigned. It has to declare varibles inside the block scope  `{}`.
 
 7. **Where does the following code throw an error? What type of error? Why?**
 ```javascript
@@ -85,7 +90,7 @@ console.log(a);
 **tags:** #variableDeclaration
 **key:** "the variable `b` is not defined."
 
-
+`error` because `b` is not defined. It has no value. It'd work if `b` is converted into a string, `"b"` because strings do have value. 
 
 8. **What is the value of `y` after this code runs? Explain why this is the case.**
 ```javascript
@@ -99,7 +104,7 @@ console.log(y);
 **tags:** #mutability
 **key:** "`y` points to the integer `1`, a primitive data type", "reassigning `x` has no effect on `y`" 
 
-
+`y` has the value of 1 always despite having `x += 1;`, which is `x` being reassigned, the value of `y` would not change because `x` was redeclared after `y` was declared. 
 
 9. **What does the following code log? Explain why?**
 ```javascript
@@ -111,7 +116,7 @@ console.log(b.goals);
 **tags:** #mutability
 **key:** "`b` points to the same object referenced by `a`"
 
-
+`b.goals` logs to `"Cielo"` because `b` is assigned as `a` which means that whichever value `a` is assigned as `b` will also have the same value.
 
 10. **Where does the following code throw an error? What type of error? Why?**
 ```javascript
