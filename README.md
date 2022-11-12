@@ -285,8 +285,24 @@ doubleConsonants('Hello-World!');    // "HHellllo-WWorrlldd!"
 doubleConsonants('July 4th');        // "JJullyy 4tthh"
 doubleConsonants('');                // ""
 ```
-
-
+function doubleConsonants(str) {
+    let newArr = [];
+    // join the array turn it into a string
+    let splitStr = str.split("");
+    let consonants = ["b", "c", "d", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z", "B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"];
+    for (let i = 0; i < splitStr.length; i++) {
+        if (consonants.includes(splitStr[i])) {
+            newArr.push(splitStr[i]); // time 1
+            newArr.push(splitStr[i]); // time 2
+        }
+        else {
+            newArr.push(splitStr[i]); //time 1
+        }
+        //turning it back into a string
+    }
+    return newArr.join("");
+}
+doubleConsonants();
 
 2. Write a function that takes a string and returns the string reversed.
 
@@ -297,8 +313,14 @@ reverse('anotherTest'); // "tseTrehtona"
 reverse('factor In spaces'); // "secaps nI rotcaf"
 reverse(''); // ""
 ```
-
-
+function reverseStr(str) {
+    let newStr = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        newStr += str[i];
+    }
+    return newStr;
+}
+reverseStr();
 
 3. Write a function takes an integer `year` as an argument and returns a boolean based on whether the year is a leap year. Note: Every year that is evenly divisible by 4 is a leap year, except every year that is evenly divisible by 100, unless the year is also evenly divisible by 400.
 
@@ -309,7 +331,15 @@ isLeapYear(1996); // true
 isLeapYear(1900); // false
 isLeapYear(2000); // true
 ```
-
+function leapYear(num) {
+    if ((num % 4 === 0) && (num % 100 !== 0) || (num % 400 === 0)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+leapYear();
 
 4. Write a function that combines two arrays into one new array. The new array should start with an item from the first array argument, then an item from the second array argument, and then alternates. You can assume the two input arrays are the same length.
 
